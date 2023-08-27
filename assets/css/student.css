@@ -1,0 +1,65 @@
+ .studentList-container {
+     width: 100%;
+     padding: 0;
+     margin: 0;
+     margin-top: 25px;
+     box-sizing: border-box;
+     text-align: center;
+ }
+ 
+ .student-table {
+     width: 100%;
+     border-collapse: collapse;
+     margin-top: 20px;
+     padding: 0;
+     margin: 0;
+ }
+ 
+ .student-table thead {
+     background-color: gray;
+ }
+ 
+ .student-table thead th {
+     text-align: center;
+     padding: 10px;
+     border: 2px solid black;
+     color: white;
+ }
+ 
+ .student-table tbody td {
+     text-align: start;
+     padding: 10px;
+     border: 2px solid black;
+ }
+ 
+ .more-details-container {
+     display: none;
+     cursor: pointer;
+ }
+ 
+ .course-table {
+     margin: auto;
+     width: 95%;
+     border-collapse: collapse;
+     margin-top: 20px;
+ }
+ 
+ .course-table thead {
+     background-color: rgb(234, 197, 143);
+ }
+ 
+ .editable {
+     outline: none;
+     border: 0;
+ }
+ 
+ .studentInterviews-table {
+     margin: 10px auto;
+     width: 95%;
+     border-collapse: collapse;
+     margin-top: 30px;
+ }
+ 
+ .studentInterviews-table thead {
+     background-color: rgb(234, 197, 143);
+ }

@@ -1,0 +1,80 @@
+<div id="students-container" class="page-container">
+    <div class="form-container">
+
+        <form class="forms" id="student-forms" onsubmit="return createStudent(event)">
+            <span class='formsHeader'>Students form</span>
+
+            <div class="field">
+                <input type="text" name="name" placeholder="Enter  Name" required>
+            </div>
+
+            <div class="field">
+                <input type="text" name="college" placeholder="Enter college" required>
+            </div>
+
+            <div class="field">
+                <select id="batches" name="batch">
+                
+              <option>Select Batch</option>
+               <%for( batch of locals.batches){%>
+                <%if(batch.user.id==locals.user.id){%>
+                    <option value="<%=batch._id%>"><%=batch.name%></option>
+                    <%}%>
+                  
+               <%}%>
+           </select>
+            </div>
+
+            <div class="field">
+                <button type="submit">Create Students</button>
+            </div>
+        </form>
+
+
+        <form class="forms" id="course-forms" onsubmit="return submitCourseScore(event)">
+            <span class='formsHeader'>Course Score form</span>
+
+            <div class="field">
+                <input type="text" name="scoreDSA" placeholder="Enter DSA Score" required>
+            </div>
+
+            <div class="field">
+                <input type="text" name="scoreWebD" placeholder="Enter webD Score" required>
+            </div>
+
+            <div class="field">
+                <input type="text" name="scoreReact" placeholder="Enter React Score" required>
+            </div>
+
+            <div class="field">
+                <select id="batches-selector" name="student">
+                
+              <option>Select Student</option>
+               <%for( batch of locals.batches){%>
+                
+                <optgroup id="<%=batch.id+'optgroup'%>" label="<%=batch.name%>">
+                    <%for(index in batch.students){%>
+                        <%let student=batch.students[index] %>
+                           <option id="<%=student._id+'option'%>"  value="<%=student._id%>"><%=student.name%></option>
+                        <%}%>
+                </optgroup>
+               <%}%>
+              </select>
+            </div>
+
+            <div class="field">
+                <button type="submit">Submit Score</button>
+            </div>
+        </form>
+
+    </div>
+
+    <%for( batch of locals.batches){%>
+        <%- include('_students'); %>
+            <%}%>
+
+
+                <!--
+                 <script src="/js/student.js"></script>
+                <script src="/js/courseScore.js"></script>
+               -->

@@ -1,0 +1,43 @@
+<div class="batch-container">
+    <span class="batch-heading">Batches Detail</span>
+    <table class="batch-table" id="batchTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th> Batch Name</th>
+                <th>Author</th>
+                <th>Students</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody id="batchTableBody">
+
+            <%for(index in locals.batches){%>
+                <%let batch=locals.batches[index] %>
+                    <tr id="<%= batch.id+'row'%>">
+                        <td>
+                            <%= batch.batchId%>
+                        </td>
+                        <td>
+                            <%= batch.name%>
+                        </td>
+
+                        <td>
+                            <%= batch.user.name%>
+                        </td>
+                        <td>
+                            <%= batch.studentsCount%>
+                        </td>
+                        <td>
+                            <a href="<%='#'+batch.name%>">View</a>
+                            <%if(locals.user && locals.user.id==batch.user._id){%>
+                                <button onclick="deleteBatch(event,'<%=batch.id%>')">Delete</button>
+                                <%}%>
+                        </td>
+                    </tr>
+                    <%}%>
+        </tbody>
+    </table>
+
+</div>
